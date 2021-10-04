@@ -1,0 +1,47 @@
+{
+  "name": "guesslang-js",
+  "version": "1.0.0",
+  "description": "Use guesslang's ML model to detect source code languages",
+  "main": "dist/lib/index.js",
+  "bin": {
+    "guesslang": "cli/index.js"
+  },
+  "module": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && webpack --mode production",
+    "watch": "npm run clean && webpack --watch",
+    "test": "mocha --recursive dist/test/**/*.test.js",
+    "pretest": "npm run clean && tsc --build ./test",
+    "prepack": "npm run build",
+    "prepublishOnly": "npm test && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hieplpvip/guesslang-js.git"
+  },
+  "author": "Bao-Hiep Le",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hieplpvip/guesslang-js/issues"
+  },
+  "homepage": "https://github.com/hieplpvip/guesslang-js#readme",
+  "devDependencies": {
+    "@tensorflow/tfjs-backend-cpu": "^3.9.0",
+    "@tensorflow/tfjs-converter": "^3.9.0",
+    "@tensorflow/tfjs-core": "^3.9.0",
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "8.2.3",
+    "@types/node": "^16.3.1",
+    "chai": "^4.3.4",
+    "mocha": "9.0.2",
+    "prettier": "^2.4.1",
+    "rimraf": "3.0.2",
+    "terser-webpack-plugin": "^5.1.4",
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.3.5",
+    "webpack": "~5.44.0",
+    "webpack-cli": "^4.7.2"
+  }
+}
