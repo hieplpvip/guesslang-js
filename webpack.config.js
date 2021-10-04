@@ -7,7 +7,7 @@ module.exports = function (env, argv) {
   const mode = argv.mode || 'none';
   return {
     entry: {
-      index: './lib/index.ts',
+      guesslang: './lib/index.ts',
     },
     mode: mode,
     target: 'node',
