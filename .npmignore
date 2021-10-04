@@ -1,8 +1,10 @@
+.github
+.prettierrc.json
 dist/test
-test
-.vscode
 lib
+model
+test
 tsconfig.json
 webpack.config.js
 **/*.map
-*.tgz
+guesslang-js-*.tgz
