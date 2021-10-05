@@ -11,7 +11,7 @@ module.exports = function (env, argv) {
   return {
     entry: './lib/index.ts',
     mode: mode,
-    target: 'node',
+    target: 'web',
     devtool: 'source-map',
     output: {
       path: path.resolve(__dirname, 'dist', 'lib'),
