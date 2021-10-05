@@ -122,3 +122,9 @@ You should get an output similar to this:
 ## Differences from vscode-languagedetection
 
 The only notable difference is that this library includes the guesslang model as Base64 encoded string, allowing everything to be loaded from one single file. Meanwhile, `vscode-languagedetection` loads the model from files using `fs`.
+
+## Credits
+
+- [guesslang](https://github.com/yoeo/guesslang)
+- [vscode-languagedetection](https://github.com/microsoft/vscode-languagedetection)
+- [base64-arraybuffer](https://github.com/niklasvh/base64-arraybuffer)

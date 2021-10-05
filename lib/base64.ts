@@ -1,3 +1,5 @@
+// Taken from https://github.com/niklasvh/base64-arraybuffer/blob/47fe6a8b415945503594a2adb0d24804b136d851/src/index.ts
+
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 const lookup = typeof Uint8Array === 'undefined' ? [] : new Uint8Array(256);
