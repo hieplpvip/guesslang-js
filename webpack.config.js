@@ -52,7 +52,7 @@ module.exports = function (env, argv) {
         },
         {
           test: /group1-shard1of1.bin$/,
-          type: 'asset/inline',
+          use: 'base64-inline-loader',
         },
         {
           test: /model.json$/,
@@ -64,6 +64,11 @@ module.exports = function (env, argv) {
       extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
       alias: {
         '@tensorflow/tfjs': path.resolve(__dirname, 'node_modules', '@tensorflow', 'tfjs', 'dist', 'tf.es2017.js'),
+      },
+    },
+    resolveLoader: {
+      alias: {
+        'base64-inline-loader': path.resolve(__dirname, 'loader', 'base64-inline-loader', 'index.js'),
       },
     },
     stats: {

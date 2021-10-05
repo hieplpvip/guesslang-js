@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>guesslang.js</title>
+  </head>
+  <body>
+    <textarea id="code" cols="100" rows="40"></textarea>
+    <textarea id="result" cols="100" rows="40" readonly></textarea>
+    <br />
+    <button id="detect">Detect</button>
+
+    <script type="text/javascript" src="dist/lib/guesslang.min.js"></script>
+    <script type="text/javascript">
+      var guessLang = new GuessLang();
+      document.getElementById('detect').onclick = function () {
+        var code = document.getElementById('code').value;
+        guessLang.runModel(code).then((result) => {
+          document.getElementById('result').value = JSON.stringify(result, null, 2);
+        });
+      };
+    </script>
+  </body>
+</html>

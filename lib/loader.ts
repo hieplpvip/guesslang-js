@@ -4,9 +4,7 @@ import { base64ToArrayBuffer } from './base64';
 import MODEL_JSON from '../model/model.json';
 
 // @ts-ignore
-import _MODEL_WEIGHTS from '../model/group1-shard1of1.bin';
-
-const MODEL_WEIGHTS = _MODEL_WEIGHTS.replace('data:application/octet-stream;base64,', '');
+import MODEL_WEIGHTS from '../model/group1-shard1of1.bin';
 
 export const modelLoadJson: () => Promise<{ [key: string]: any }> = async () => {
   return JSON.parse(MODEL_JSON);
