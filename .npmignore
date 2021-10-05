@@ -1,9 +1,11 @@
 .github
 .prettierrc.json
 dist/test
+example
 lib
 model
 test
+utils
 tsconfig.json
 webpack.config.js
 **/*.map
