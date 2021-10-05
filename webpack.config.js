@@ -2,9 +2,8 @@
 
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+const GzipPlugin = require('./utils/gzip-plugin');
 const { version } = require('./package.json');
-
-const banner = `/*! guesslang.min.js v${version} */`;
 
 module.exports = function (env, argv) {
   const mode = argv.mode || 'none';
@@ -12,7 +11,6 @@ module.exports = function (env, argv) {
     entry: './lib/index.ts',
     mode: mode,
     target: 'web',
-    devtool: 'source-map',
     output: {
       path: path.resolve(__dirname, 'dist', 'lib'),
       filename: 'guesslang.min.js',
@@ -24,13 +22,15 @@ module.exports = function (env, argv) {
       minimizer: [
         new TerserPlugin({
           parallel: true,
+          extractComments: {
+            banner: false,
+          },
           terserOptions: {
             ecma: 6,
             compress: mode === 'production',
             mangle: mode === 'production',
             output: {
               beautify: mode !== 'production',
-              preamble: banner,
               comments: false,
               ecma: 6,
             },
@@ -60,6 +60,11 @@ module.exports = function (env, argv) {
         },
       ],
     },
+    plugins: [
+      new GzipPlugin({
+        header: `/*! guesslang.min.js v${version} */\n`,
+      }),
+    ],
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
       alias: {
@@ -68,7 +73,7 @@ module.exports = function (env, argv) {
     },
     resolveLoader: {
       alias: {
-        'base64-inline-loader': path.resolve(__dirname, 'loader', 'base64-inline-loader', 'index.js'),
+        'base64-inline-loader': path.resolve(__dirname, 'utils', 'base64-inline-loader', 'index.js'),
       },
     },
     stats: {

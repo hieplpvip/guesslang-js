@@ -128,3 +128,4 @@ The only notable difference is that this library includes the guesslang model as
 - [guesslang](https://github.com/yoeo/guesslang)
 - [vscode-languagedetection](https://github.com/microsoft/vscode-languagedetection)
 - [base64-arraybuffer](https://github.com/niklasvh/base64-arraybuffer)
+- [base64-inline-loader](https://github.com/monolithed/base64-inline-loader)
