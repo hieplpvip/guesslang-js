@@ -1,6 +1,6 @@
 {
   "name": "guesslang-js",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Use guesslang's ML model to detect source code languages",
   "main": "dist/lib/guesslang.min.js",
   "module": "dist/lib/guesslang.min.js",
