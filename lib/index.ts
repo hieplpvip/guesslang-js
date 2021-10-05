@@ -94,12 +94,12 @@ export class GuessLang {
   private readonly _weightsLoaderFunc: () => Promise<ArrayBuffer>;
   private readonly _normalizeNewline: boolean;
 
-  constructor(modelOptions?: GuessLangOptions) {
-    this._modelJsonLoaderFunc = modelOptions?.modelJsonLoaderFunc ?? GuessLang.NODE_MODEL_JSON_FUNC;
-    this._weightsLoaderFunc = modelOptions?.weightsLoaderFunc ?? GuessLang.NODE_WEIGHTS_FUNC;
-    this._minContentSize = modelOptions?.minContentSize ?? GuessLang.DEFAULT_MIN_CONTENT_SIZE;
-    this._maxContentSize = modelOptions?.maxContentSize ?? GuessLang.DEFAULT_MAX_CONTENT_SIZE;
-    this._normalizeNewline = modelOptions?.normalizeNewline ?? true;
+  constructor(options?: GuessLangOptions) {
+    this._modelJsonLoaderFunc = options?.modelJsonLoaderFunc ?? GuessLang.NODE_MODEL_JSON_FUNC;
+    this._weightsLoaderFunc = options?.weightsLoaderFunc ?? GuessLang.NODE_WEIGHTS_FUNC;
+    this._minContentSize = options?.minContentSize ?? GuessLang.DEFAULT_MIN_CONTENT_SIZE;
+    this._maxContentSize = options?.maxContentSize ?? GuessLang.DEFAULT_MAX_CONTENT_SIZE;
+    this._normalizeNewline = options?.normalizeNewline ?? true;
   }
 
   private async getModelJSON(): Promise<io.ModelJSON> {

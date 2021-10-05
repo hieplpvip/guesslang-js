@@ -119,6 +119,22 @@ You should get an output similar to this:
 ]
 ```
 
+### Advanced Options
+
+You can pass an optional object to `GuessLang` containing the following options:
+
+- `minContentSize?: number` - The minimum number of characters in a file to be considered for language detection. Defaults to `20`.
+- `maxContentSize?: number` - The maximum number of characters _that will be used_ in a file to be considered for language detection. Defaults to `100000`.
+
+For example:
+
+```js
+const guessLang = new GuessLang({
+  minContentSize: 0,
+  maxContentSize: 1000,
+});
+```
+
 ## Differences from vscode-languagedetection
 
 The only notable difference is that this library includes the guesslang model as Base64 encoded string, allowing everything to be loaded from one single file. Meanwhile, `vscode-languagedetection` loads the model from files using `fs`.
