@@ -9,8 +9,29 @@
     <br />
     <button id="detect">Detect</button>
 
-    <script type="text/javascript" src="dist/lib/guesslang.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/guesslang-js/dist/lib/guesslang.min.js"></script>
     <script type="text/javascript">
+      document.getElementById('code').value = `struct Rectangle {
+  width: u32,
+  height: u32,
+}
+
+fn main() {
+  let rect1 = Rectangle {
+    width: 30,
+    height: 50,
+  };
+
+  println!(
+    "The area of the rectangle is {} square pixels.",
+    area(&rect1)
+  );
+}
+
+fn area(rectangle: &Rectangle) -> u32 {
+  rectangle.width * rectangle.height
+}`;
+
       var guessLang = new GuessLang();
       document.getElementById('detect').onclick = function () {
         var code = document.getElementById('code').value;
