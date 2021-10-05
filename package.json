@@ -2,12 +2,12 @@
   "name": "guesslang-js",
   "version": "1.0.0",
   "description": "Use guesslang's ML model to detect source code languages",
-  "main": "dist/lib/guesslang.js",
+  "main": "dist/lib/guesslang.min.js",
   "bin": {
     "guesslang": "cli/index.js"
   },
-  "module": "dist/lib/guesslang.js",
-  "types": "dist/lib/guesslang.d.ts",
+  "module": "dist/lib/guesslang.min.js",
+  "types": "dist/lib/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && webpack --mode production",

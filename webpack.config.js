@@ -2,19 +2,20 @@
 
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+const { version } = require('./package.json');
+
+const banner = `/*! guesslang.min.js v${version} */`;
 
 module.exports = function (env, argv) {
   const mode = argv.mode || 'none';
   return {
-    entry: {
-      guesslang: './lib/index.ts',
-    },
+    entry: './lib/index.ts',
     mode: mode,
     target: 'node',
     devtool: 'source-map',
     output: {
       path: path.resolve(__dirname, 'dist', 'lib'),
-      filename: '[name].js',
+      filename: 'guesslang.min.js',
       libraryTarget: 'umd',
       globalObject: 'this',
       umdNamedDefine: true,
@@ -29,6 +30,7 @@ module.exports = function (env, argv) {
             mangle: mode === 'production',
             output: {
               beautify: mode !== 'production',
+              preamble: banner,
               comments: false,
               ecma: 6,
             },

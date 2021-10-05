@@ -11,7 +11,7 @@ This library is intended to be used only in browser. For Node.JS, please conside
 Load the library:
 
 ```html
-<script type="text/javascript" src="guesslang.js"></script>
+<script type="text/javascript" src="guesslang.min.js"></script>
 ```
 
 Declare sample code:
